@@ -153,21 +153,21 @@
       </footer>
     </div>
     <script>
-      function displayTemperature(response) {
+     function displayTemperature(response) {
         let temperatureElement = document.querySelector("#current-temperature");
-        let temperature = Math.round(response.data.temperature.current);
         let cityElement = document.querySelector("#current-city");
-        cityElement.innerHTML = response.data.city;
+        let temperature = Math.round(response.data.temperature.current);
         temperatureElement.innerHTML = temperature;
+        cityElement.innerHTML = response.data.city;
       }
 
       function search(event) {
         event.preventDefault();
+        let cityElement = document.querySelector("#current-city");
         let searchInputElement = document.querySelector("#search-input");
         let city = searchInputElement.value;
 
-        let apiKey = "b8bt330ca4948o1c4f00eae0e0a6d854a";
-        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+        let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=8bt330ca4948o1c4f00eae0e0a6d854a&units=metric`;
 
         axios.get(apiUrl).then(displayTemperature);
       }
